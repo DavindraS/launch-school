@@ -11,6 +11,19 @@ def valid_number?(num)
   num.to_i() != 0
 end
 
+def operation_to_message(op)
+  case op
+  when '1'
+    'Adding'
+  when '2'
+    'Subtracting'
+  when '3'
+    'Multiplying'
+  when '4'
+    'Dividing'
+  end
+end
+
 prompt("Welcome to Calculator! Enter your name:")
 name = ''
 loop do
@@ -58,7 +71,7 @@ loop do # main loop
     3) multiply
     4) divide
   MSG
-  
+
   prompt(operator_prompt)
   loop do
     operator = Kernel.gets().chomp()
@@ -80,6 +93,8 @@ loop do # main loop
   when '4'
     number1.to_f() / number2.to_f()
   end
+
+  prompt("#{operation_to_message(operator)} the two numbers...")
 
   prompt("The result is #{result}")
 
