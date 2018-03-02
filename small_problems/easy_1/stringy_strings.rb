@@ -1,10 +1,12 @@
 def stringy(num, arg)
   count = Array.new(num) # array that will hold 'num' values
   count.each_index do |index| # for each index
-    arg == 0 ? (index.even? ? count[index] = 0 : count[index] = 1) :
-    (index.even? ? count[index] = 1 : count[index] = 0) # write 1's and 0's
+    if arg.zero?
+      index.even? ? count[index] = 0 : count[index] = 1
+    else
+      index.even? ? count[index] = 1 : count[index] = 0
   end
-  count.join() # Array#join to create the final string
+  count.join # Array#join to create the final string
 end
 
 puts stringy(6, 1) == '101010'
