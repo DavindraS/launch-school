@@ -11,9 +11,22 @@ def valid_number?(num)
   num.to_i() != 0
 end
 
-prompt("Welcome to Calculator!")
+prompt("Welcome to Calculator! Enter your name:")
+name = ''
+loop do
+  name = Kernel.gets().chomp()
+  if name.empty?()
+    prompt("Make sure to use a valid name.")
+  else
+    break
+  end
+end
+
 number1 = ''
 number2 = ''
+operator = ''
+
+prompt("Hi #{name}")
 
 loop do # main loop
   loop do
@@ -38,8 +51,24 @@ loop do # main loop
     end
   end
 
-  prompt("What operation would you like to perform? 1) add 2) subtract 3) multiply 4) divide")
-  operator = Kernel.gets().chomp()
+  operator_prompt = <<-MSG
+    What operation would you like to perform?
+    1) add
+    2) subtract
+    3) multiply
+    4) divide
+  MSG
+  
+  prompt(operator_prompt)
+  loop do
+    operator = Kernel.gets().chomp()
+
+    if %w(1 2 3 4).include?(operator)
+      break
+    else
+      prompt("Must choose 1, 2, 3, or 4")
+    end
+  end
 
   result = case operator
   when '1'
