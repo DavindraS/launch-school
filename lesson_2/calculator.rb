@@ -3,15 +3,19 @@
 # perform the operation on the two numbers
 # output the result
 
-Kernel.puts("Welcome to Calculator!")
+def prompt(message)
+  Kernel.puts("=> #{message}")
+end
 
-Kernel.puts("What's the first number?")
+prompt("Welcome to Calculator!")
+
+prompt("What's the first number?")
 number1 = Kernel.gets().chomp()
 
-Kernel.puts("What's the second number?")
+prompt("What's the second number?")
 number2 = Kernel.gets().chomp()
 
-Kernel.puts("What operation would you like to perform? 1) add 2) subtract 3) multiply 4) divide")
+prompt("What operation would you like to perform? 1) add 2) subtract 3) multiply 4) divide")
 operator = Kernel.gets().chomp()
 
 if operator == '1'
