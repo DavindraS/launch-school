@@ -1,3 +1,11 @@
+
+
+puts stringy(6) == '101010'
+puts stringy(9) == '101010101'
+puts stringy(4) == '1010'
+puts stringy(7) == '1010101'
+
+=begin original solution
 def stringy(num)
   count = num
   output_str = ''
@@ -10,8 +18,4 @@ def stringy(num)
   end
   output_str
 end
-
-puts stringy(6) == '101010'
-puts stringy(9) == '101010101'
-puts stringy(4) == '1010'
-puts stringy(7) == '1010101'
+=end
