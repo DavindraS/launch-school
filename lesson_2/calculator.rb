@@ -12,16 +12,22 @@ def valid_number?(num)
 end
 
 def operation_to_message(op)
+  result = ''
   case op
   when '1'
-    'Adding'
+    result = 'Adding'
   when '2'
-    'Subtracting'
+    result = 'Subtracting'
   when '3'
-    'Multiplying'
+    result = 'Multiplying'
   when '4'
-    'Dividing'
+    result = 'Dividing'
   end
+
+  # Any more code can go here
+
+  # At last, we return result
+  return result
 end
 
 prompt("Welcome to Calculator! Enter your name:")
