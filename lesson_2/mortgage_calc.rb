@@ -15,9 +15,9 @@ loop do
     loan_amount = gets.chomp.to_f
     if loan_amount < 0
       puts('Please enter an amount greater than 0')
-      next
+    else
+      break
     end
-    break
   end
 
   loop do
@@ -25,11 +25,10 @@ loop do
     apr = gets.chomp.to_f
     if apr < 1
       puts('Please enter the APR in the correct format (6.5 instead of .065)')
-      next
     else
       interest = (apr * 0.01) / 12.0 # Monthly interest
+      break
     end
-    break
   end
 
   puts('Please enter the loan duration in years')
