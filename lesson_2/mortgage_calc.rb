@@ -1,7 +1,7 @@
 puts('Welcome to my Loan Calculator')
 puts('Please enter the loan amount')
 loan_amount = gets.chomp.to_f
-puts('What\'s your APR? (ex. 5%, 24.5%)')
+puts('What\'s your APR? (ex. 5, 24.5, not .05 or .245)')
 apr = gets.chomp.to_f
 interest = (apr * 0.01) / 12.0 # Monthly interest
 puts('Please enter the loan duration')
