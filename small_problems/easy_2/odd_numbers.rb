@@ -1,1 +1,1 @@
-(1..99).find_all{ |num| puts num if num.odd? }
+(1..99).find_all { |num| puts num if num.odd? }
