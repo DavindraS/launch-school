@@ -20,10 +20,10 @@ loop do
       puts "The product of the integers between 1 and #{number} is #{(1..number).inject(:*)}."
       break
     else
-      puts "Wrong input"
+      puts 'Wrong input'
     end
   end
 
-  puts "Do you want to do another calculation?"
+  puts 'Do you want to do another calculation?'
   break unless gets.chomp.downcase.include?('y')
 end
