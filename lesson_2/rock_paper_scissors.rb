@@ -1,11 +1,11 @@
 VALID_CHOICES = %w[rock paper scissors lizard spock].freeze
 WINNING_CHOICES = {
-  rock: ['scissors','lizard'],
-  paper: ['rock', 'spock'],
-  scissors: ['paper', 'lizard'],
-  lizard: ['spock', 'paper'],
-  spock: ['scissors', 'rock']
-}
+  rock: %w[scissor lizard],
+  paper: %w[rock spock],
+  scissors: %w[paper lizard],
+  lizard: %w[spock paper],
+  spock: %w[scissors rock]
+}.freeze
 
 def prompt(message)
   Kernel.puts("=> #{message}")
