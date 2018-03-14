@@ -1,4 +1,4 @@
-VALID_CHOICES = %w[rock paper scissors lizard spock].freeze
+VALID_CHOICES = %w[rock paper scissors lizard spock r p s l sp].freeze
 WINNING_CHOICES = {
   rock: %w[scissor lizard],
   paper: %w[rock spock],
@@ -11,8 +11,19 @@ def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
+def make_long(choice)
+  case choice
+  when 'r' then 'rock'
+  when 'p' then 'paper'
+  when 's' then 'scissors'
+  when 'l' then 'lizard'
+  when 'sp' then 'spock'
+  else choice
+  end
+end
+
 def win?(first, second)
-  WINNING_CHOICES[first.to_sym].include?(second)
+  WINNING_CHOICES[make_long(first).to_sym].include?(make_long(second))
 end
 
 def display_results(player, computer)
@@ -37,7 +48,7 @@ loop do
   end
 
   computer_choice = VALID_CHOICES.sample
-  Kernel.puts("You choose: #{choice}; Computer chose: #{computer_choice}")
+  Kernel.puts("You choose: #{make_long(choice)}; Computer chose: #{make_long(computer_choice)}")
 
   display_results(choice, computer_choice)
 
