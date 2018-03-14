@@ -12,7 +12,7 @@ def prompt(message)
 end
 
 def win?(first, second)
-  WINNING_CHOICES[:"#{first}"].include?(second)
+  WINNING_CHOICES[first.to_sym].include?(second)
 end
 
 def display_results(player, computer)
