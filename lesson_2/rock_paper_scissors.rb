@@ -1,13 +1,18 @@
-VALID_CHOICES = %w[rock paper scissors].freeze
+VALID_CHOICES = %w[rock paper scissors lizard spock].freeze
+WINNING_CHOICES = {
+  rock: ['scissors','lizard'],
+  paper: ['rock', 'spock'],
+  scissors: ['paper', 'lizard'],
+  lizard: ['spock', 'paper'],
+  spock: ['scissors', 'rock']
+}
 
 def prompt(message)
   Kernel.puts("=> #{message}")
 end
 
 def win?(first, second)
-  (first == 'rock' && second == 'scissors') ||
-    (first == 'paper' && second == 'rock') ||
-    (first == 'scissors' && second == 'paper')
+  WINNING_CHOICES[:"#{first}"].include?(second)
 end
 
 def display_results(player, computer)
