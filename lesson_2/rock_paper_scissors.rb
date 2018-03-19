@@ -1,11 +1,14 @@
 VALID_CHOICES = %w[rock paper scissors lizard spock r p s l sp].freeze
 WINNING_CHOICES = {
-  rock: %w[scissor lizard],
+  rock: %w[scissors lizard],
   paper: %w[rock spock],
   scissors: %w[paper lizard],
   lizard: %w[spock paper],
   spock: %w[scissors rock]
 }.freeze
+
+player_score = 0
+computer_score = 0
 
 def prompt(message)
   Kernel.puts("=> #{message}")
@@ -23,34 +26,57 @@ def make_long(choice)
 end
 
 def win?(first, second)
-  WINNING_CHOICES[make_long(first).to_sym].include?(make_long(second))
+  WINNING_CHOICES[first.to_sym].include?(second)
 end
 
-def display_results(player, computer)
+def return_results(player, computer)
   if win?(player, computer)
-    prompt('You won!')
+    'player'
   elsif win?(computer, player)
-    prompt('Computer won!')
+    'computer'
   else
-    prompt("It's a tie!")
+    'none'
   end
 end
 
-choice = ''
+def display_final_score(player_score, computer_score)
+  if player_score > computer_score
+    puts "YOU WON! You: #{player_score} Computer: #{computer_score}"
+  else
+    puts "The computer won! You: #{player_score} Computer: #{computer_score}"
+  end
+end
+
+our_choice = ''
 
 loop do
   loop do
-    prompt("Choose one: #{VALID_CHOICES.join(', ')}")
-    choice = Kernel.gets.chomp
+    loop do
+      prompt("Choose one: #{VALID_CHOICES.join(', ')}")
+      our_choice = make_long(Kernel.gets.chomp)
+      break if VALID_CHOICES.include?(our_choice)
+      prompt("That's not a valid choice.")
+    end
 
-    break if VALID_CHOICES.include?(choice)
-    prompt("That's not a valid choice.")
+    computer_choice = make_long(VALID_CHOICES.sample)
+    Kernel.puts("You chose: #{our_choice}; Computer chose: #{computer_choice}")
+
+    winner = return_results(our_choice, computer_choice)
+
+    if winner == 'player'
+      prompt('You won!')
+      player_score += 1
+    elsif winner == 'computer'
+      prompt('Computer won!')
+      computer_score += 1
+    else
+      prompt("It's a tie!")
+    end
+
+    break if player_score == 5 || computer_score == 5
   end
 
-  computer_choice = VALID_CHOICES.sample
-  Kernel.puts("You choose: #{make_long(choice)}; Computer chose: #{make_long(computer_choice)}")
-
-  display_results(choice, computer_choice)
+  display_final_score(player_score, computer_score)
 
   prompt('Do you want to play again?')
   answer = Kernel.gets.chomp
