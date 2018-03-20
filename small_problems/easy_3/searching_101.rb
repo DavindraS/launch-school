@@ -1,10 +1,3 @@
-=begin
-Ask the user to enter a number into every slot of a 5 length array
-Ask them to enter a last number (that we will check for)
-Check if the array contains the last number
-print out the result of the Check
-=end
-
 def translate_num(number)
   case number
   when 1 then '1st'
@@ -19,7 +12,7 @@ numbers = Array.new(5)
 
 def get_numbers(numbers_array)
   numbers_array.collect!.with_index do |x, i|
-    puts "==> Please enter the #{translate_num(i+1)} number:"
+    puts "==> Please enter the #{translate_num(i + 1)} number:"
     x = gets.chomp.to_i
   end
 end
