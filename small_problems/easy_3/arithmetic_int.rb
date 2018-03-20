@@ -17,5 +17,5 @@ end
 op_arr = ['+', '-', '*', '/', '%', '**']
 
 op_arr.each do |op|
-  puts "==> #{first_num} op #{second_num} = #{perform_op(first_num, second_num, op)}"
+  puts "==> #{first_num} #{op} #{second_num} = #{perform_op(first_num, second_num, op)}"
 end
