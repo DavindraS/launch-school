@@ -1,6 +1,19 @@
+=begin
 def oddities(arr)
   new_arr = arr.map.with_index {|x, i| x if i.even?}
   new_arr.compact
+end
+=end
+
+def oddities(arr)
+  new_arr = Array.new
+  index = 0
+  loop do
+    break if index >= arr.length
+    new_arr << arr[index]
+    index += 2
+  end
+  p new_arr
 end
 
 
