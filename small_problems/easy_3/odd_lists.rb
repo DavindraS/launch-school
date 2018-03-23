@@ -5,6 +5,7 @@ def oddities(arr)
 end
 =end
 
+=begin
 def oddities(arr)
   new_arr = Array.new
   index = 0
@@ -14,6 +15,11 @@ def oddities(arr)
     index += 2
   end
   p new_arr
+end
+=end
+
+def oddities(arr)
+  arr.delete_if.with_index {|x, i| x if i.odd?}
 end
 
 
