@@ -1,0 +1,14 @@
+def xor?(op_one, op_two)
+  if op_one && op_two
+    false
+  elsif op_one || op_two
+    true
+  else
+    false
+  end
+end
+
+puts xor?(5.even?, 4.even?) == true
+puts xor?(5.odd?, 4.odd?) == true
+puts xor?(5.odd?, 4.even?) == false
+puts xor?(5.even?, 4.odd?) == false
