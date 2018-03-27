@@ -1,2 +1,2 @@
 string = "The Flintsontes Rock!"
-10.times { puts string.prepend(' ')}
+10.times {|num| puts (" " * num) + string}
