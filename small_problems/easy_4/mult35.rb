@@ -1,9 +1,15 @@
+=begin
 def multisum(num)
   sum = 0
   1.upto(num) do |num|
     sum += num if num % 3 == 0 || num % 5 == 0
   end
-  sum 
+  sum
+end
+=end
+
+def multisum(num)
+  (1..num).to_a.delete_if{|x| (x % 3 != 0 && x % 5 != 0)}.reduce(:+)
 end
 
 puts multisum(3) == 3
