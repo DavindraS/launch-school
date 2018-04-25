@@ -1,3 +1,15 @@
+# Further exploration
+def running_total(arr)
+  sum = 0
+  arr.each_with_object([]) {|value, new_arr| new_arr << sum += value}
+end
+
+puts running_total([2, 5, 13]) == [2, 7, 20]
+puts running_total([14, 11, 7, 15, 20]) == [14, 25, 32, 47, 67]
+puts running_total([3]) == [3]
+puts running_total([]) == []
+
+=begin my original solution
 def running_total(arr)
   arr.map!.with_index do |x, i|
     if i == 0
@@ -13,7 +25,7 @@ puts running_total([14, 11, 7, 15, 20]) == [14, 25, 32, 47, 67]
 puts running_total([3]) == [3]
 puts running_total([]) == []
 
-=begin actual solution
+actual solution
 def running_total(array)
   sum = 0
   array.map { |value| sum += value }
