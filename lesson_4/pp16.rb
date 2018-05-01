@@ -5,3 +5,10 @@ flintstones.each do |name|
 end
 
 p flintstones
+
+=begin
+book answer
+flintstones.map! do |name|
+  name[0, 3]
+end
+=end 
