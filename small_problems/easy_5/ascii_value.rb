@@ -15,3 +15,4 @@ puts ascii_value('') == 0
 
 # further exploration
 p 'a'.ord.chr == 'a' # find the mystery method
+p 'hello'.ord.chr # only prints 'h'
