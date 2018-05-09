@@ -11,7 +11,17 @@ def integer_to_string(number)
   str
 end
 
-
+def signed_integer_to_string(number)
+  str = ''
+  if number > 0
+    str << '+' << integer_to_string(number)
+  elsif number < 0
+    str << '-' << integer_to_string(-number)
+  else
+    str << '0'
+  end
+  p str
+end
 
 puts signed_integer_to_string(4321) == '+4321'
 puts signed_integer_to_string(-123) == '-123'
