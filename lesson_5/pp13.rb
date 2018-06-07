@@ -13,3 +13,14 @@ modified = arr.sort_by do |subarr|
 end
 
 p modified == solution
+
+=begin another way I can do this is have a variable that holds the
+ highest odd number, then then sort it by that?
+
+ Official solution:
+ arr.sort_by do |sub_arr|
+  sub_arr.select do |num|
+    num.odd?
+  end
+end
+=end
