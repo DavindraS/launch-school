@@ -10,3 +10,15 @@ hsh = {
 }
 
 solution = [["Red", "Green"], "MEDIUM", ["Red", "Green"], ["Orange"], "LARGE"]
+
+my_result = []
+hsh.each_value do |info|
+  if info[:type] == 'fruit'
+    my_result << info[:colors].map {|item| item.capitalize}
+  elsif info[:type] == 'vegetable'
+    my_result << info[:size].upcase
+  end
+end
+
+p my_result
+p my_result == solution
