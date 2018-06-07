@@ -4,9 +4,7 @@ arr = [[2], [3, 5, 7], [9], [11, 13, 15]]
 
 mod = arr.map do |subarr|
   subarr.select do |item|
-    if item % 3 == 0
-      item
-    end
+    item % 3 == 0
   end
 end
 
