@@ -1,7 +1,26 @@
 # take a string of words and returns a hash with the number of words of diff sizes
 
 def word_sizes(str)
+  # split into individual words
+  words = str.split(' ')
+  # get size for each word
+  word_sizes = words.map do |word|
+    word.size
+  end
+  # create a hash that will contain the information
+  hsh = {}
+  # for every element in word sizes
+  word_sizes.each do |size|
+    # check if its in hsh, if so, increment the value
+    if hsh.has_key?(size)
+      hsh[size] += 1
+    # if not, add it with number of times of 1
+    else
+      hsh[size] = 1
+    end
+  end
 
+  hsh
 end
 
 puts word_sizes('Four score and seven.') == { 3 => 1, 4 => 1, 5 => 1, 6 => 1 }
