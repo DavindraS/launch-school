@@ -15,7 +15,13 @@ def cleanup(str)
     end
   end.join # join the chars array
 
-  new_str # return the new string 
+  new_str # return the new string
 end
 
 p cleanup("---what's my +*& line?") == ' what s my line '
+
+=begin official solution
+def cleanup(text)
+  text.gsub(/[^a-z]/i, ' ').squeeze(' ')
+end
+=end
