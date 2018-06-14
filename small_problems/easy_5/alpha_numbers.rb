@@ -5,7 +5,7 @@ ALPHA_NUM = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven',
   'sixteen', 'seventeen', 'eighteen', 'nineteen']
 
 def alphabetic_number_sort(num_arr)
-  num_arr.sort {|a, b| ALPHA_NUM[a] <=> ALPHA_NUM[b]}
+  num_arr.sort_by {|number| ALPHA_NUM[number]}
 end
 
 p alphabetic_number_sort((0..19).to_a) == [
