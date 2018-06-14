@@ -1,10 +1,13 @@
 # take a string and remove any consecutive duplicate characters
 def crunch(double_str)
+  characters = double_str.chars
+  characters.map.with_index do |char, index|
+    char unless characters[index+1] == char
+  end.join
+end
 
-end 
-
-crunch('ddaaiillyy ddoouubbllee') == 'daily double'
-crunch('4444abcabccba') == '4abcabcba'
-crunch('ggggggggggggggg') == 'g'
-crunch('a') == 'a'
-crunch('') == ''
+p crunch('ddaaiillyy ddoouubbllee') == 'daily double'
+p crunch('4444abcabccba') == '4abcabcba'
+p crunch('ggggggggggggggg') == 'g'
+p crunch('a') == 'a'
+p crunch('') == ''
